@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Krishil | Robotics & Bot Developer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google tag (gtag.js) - Analytics Tracking -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_TRACKING_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      // Replace 'G-YOUR_TRACKING_ID' with your actual Google Analytics ID
+      gtag('config', 'G-VB3Y24SK6J');
+    </script>
+
     <style>
         /* Base Reset & Variables */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
@@ -588,6 +600,29 @@
                 </div>
             </div>
 
+            <!-- CODE ASSISTANT EXTENSION -->
+            <div class="bot-card animate-box">
+                <div class="bot-header">
+                    <div class="bot-type-tags">
+                        <i class="fa-solid fa-code bot-icon ai-glow"></i>
+                        <span class="bot-category">IDE & DESKTOP ASSISTANT</span>
+                    </div>
+                    <span id="codebot-status" class="status-badge offline">○ Offline</span>
+                </div>
+                <h3>Code Assistant Extension</h3>
+                <p>Scans code files, executes syntax diagnostics, debugs compiler errors natively inside the workspace, and generates snippets via voice command.</p>
+                <div class="dashboard-metrics">
+                    <div class="metric-box"><span class="metric-label">Workspace</span><span id="codebot-workspace" class="metric-value">--</span></div>
+                    <div class="metric-box"><span class="metric-label">Auto-Debug</span><span id="codebot-debug" class="metric-value">--</span></div>
+                    <div class="metric-box"><span class="metric-label">Console</span><span class="metric-value" style="font-size: 11px; color:#00D2FF;">Native</span></div>
+                </div>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Dart / Flutter</span>
+                    <span class="tag">Gemini API</span>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -654,7 +689,6 @@
 
         // 2. REAL-TIME BOT METRICS & AUTO RECONNECT
         const CENTRAL_API = "https://distant-penny-canon.ngrok-free.dev/status";
-
         function updateDashboardUI(data) {
             if (data.ruby) {
                 document.getElementById("ruby-status").className = "status-badge online";
@@ -680,6 +714,12 @@
                 document.getElementById("rubybot-queues").innerText = data.rubybot.activeQueues || "0";
                 document.getElementById("rubybot-users").innerText = data.rubybot.memberCount || "0";
             }
+            if (data.codeAssistant) {
+                document.getElementById("codebot-status").className = "status-badge online";
+                document.getElementById("codebot-status").innerText = "● Active";
+                document.getElementById("codebot-workspace").innerText = data.codeAssistant.workspace || "Ready";
+                document.getElementById("codebot-debug").innerText = data.codeAssistant.debugState || "Standby";
+            }
         }
 
         async function syncDashboardData() {
@@ -694,7 +734,8 @@
                     ruby: { orbState: "LISTENING" },
                     jivan: { filter: "BASSBOOST", vcName: "General VC" },
                     haven: { totalCoins: "45,200", activeTickets: "2", guilds: "5" },
-                    rubybot: { activeQueues: "1", memberCount: "1,204" }
+                    rubybot: { activeQueues: "1", memberCount: "1,204" },
+                    codeAssistant: { workspace: "Indexed", debugState: "Listening" }
                 });
             }
         }
