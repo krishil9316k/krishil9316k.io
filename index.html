@@ -646,33 +646,7 @@
                 </div>
             </div>
 
-**Step 2: Update the JavaScript Loop**
-Scroll down to your `<script>` section at the very bottom of `index.html`. You need to add `godfather` to your UI updater and fallback simulator so the glowing indicators work!
-
-Inside `function updateDashboardUI(data)`, add this right below the `codeAssistant` check:
-```javascript
-            if (data.godfather) {
-                document.getElementById("godfather-status").className = "status-badge online";
-                document.getElementById("godfather-status").innerText = "● Guarding";
-                document.getElementById("godfather-servers").innerText = data.godfather.servers || "0";
-                document.getElementById("godfather-ping").innerText = data.godfather.wsPing || "0ms";
-                document.getElementById("godfather-uptime").innerText = data.godfather.uptime || "0h";
-            }
-
-And inside your `syncDashboardData()` fallback simulation (inside the `catch (error)` block), add some cool fake stats for God Father so it always looks active:
-
-```javascript
-                // (Inside the updateDashboardUI block in your catch section)
-                updateDashboardUI({
-                    ruby: { orbState: "LISTENING" },
-                    jivan: { filter: "BASSBOOST", vcName: "General VC" },
-                    haven: { totalCoins: "45,200", activeTickets: "2", guilds: "5" },
-                    rubybot: { activeQueues: "1", memberCount: "1,204" },
-                    codeAssistant: { workspace: "Indexed", debugState: "Listening" },
-                    godfather: { servers: "12", wsPing: "24ms", uptime: "99.9%" } // <-- Added this!
-                });
-
-
+            
         </div>
     </section>
 
