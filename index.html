@@ -623,6 +623,56 @@
                 </div>
             </div>
 
+            <!-- GOD FATHER BOT -->
+            <div class="bot-card animate-box">
+                <div class="bot-header">
+                    <div class="bot-type-tags">
+                        <i class="fa-solid fa-user-shield bot-icon" style="color: #FF3366; filter: drop-shadow(0 0 8px #FF3366);"></i>
+                        <span class="bot-category">SECURITY & ANTI-NUKE</span>
+                    </div>
+                    <span id="godfather-status" class="status-badge offline">○ Offline</span>
+                </div>
+                <h3>GOD FATHER</h3>
+                <p>24/7 automated guardian watching every channel and role to catch and neutralize nuke attacks, raids, and spam bursts within seconds.</p>
+                <div class="dashboard-metrics">
+                    <div class="metric-box"><span class="metric-label">Servers</span><span id="godfather-servers" class="metric-value">--</span></div>
+                    <div class="metric-box"><span class="metric-label">Ping</span><span id="godfather-ping" class="metric-value">--</span></div>
+                    <div class="metric-box"><span class="metric-label">Uptime</span><span id="godfather-uptime" class="metric-value" style="color:#00D2FF;">--</span></div>
+                </div>
+                <div class="tags">
+                    <span class="tag">Node.js</span>
+                    <span class="tag">Discord.js v14</span>
+                    <span class="tag">Modular Events</span>
+                </div>
+            </div>
+
+**Step 2: Update the JavaScript Loop**
+Scroll down to your `<script>` section at the very bottom of `index.html`. You need to add `godfather` to your UI updater and fallback simulator so the glowing indicators work!
+
+Inside `function updateDashboardUI(data)`, add this right below the `codeAssistant` check:
+```javascript
+            if (data.godfather) {
+                document.getElementById("godfather-status").className = "status-badge online";
+                document.getElementById("godfather-status").innerText = "● Guarding";
+                document.getElementById("godfather-servers").innerText = data.godfather.servers || "0";
+                document.getElementById("godfather-ping").innerText = data.godfather.wsPing || "0ms";
+                document.getElementById("godfather-uptime").innerText = data.godfather.uptime || "0h";
+            }
+
+And inside your `syncDashboardData()` fallback simulation (inside the `catch (error)` block), add some cool fake stats for God Father so it always looks active:
+
+```javascript
+                // (Inside the updateDashboardUI block in your catch section)
+                updateDashboardUI({
+                    ruby: { orbState: "LISTENING" },
+                    jivan: { filter: "BASSBOOST", vcName: "General VC" },
+                    haven: { totalCoins: "45,200", activeTickets: "2", guilds: "5" },
+                    rubybot: { activeQueues: "1", memberCount: "1,204" },
+                    codeAssistant: { workspace: "Indexed", debugState: "Listening" },
+                    godfather: { servers: "12", wsPing: "24ms", uptime: "99.9%" } // <-- Added this!
+                });
+
+
         </div>
     </section>
 
