@@ -14,7 +14,7 @@
       gtag('js', new Date());
 
       // Replace 'G-YOUR_TRACKING_ID' with your actual Google Analytics ID
-      gtag('config', 'G-VB3Y24SK6J');
+      gtag('config', 'G-YOUR_TRACKING_ID');
     </script>
 
     <style>
@@ -357,6 +357,38 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* === FOOTER === */
+        footer {
+            text-align: center;
+            padding: 40px 8%;
+            background: rgba(7, 2, 13, 0.9);
+            border-top: 1px solid rgba(157, 78, 221, 0.15);
+            margin-top: 50px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            color: var(--text-muted);
+            font-size: 24px;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-cyan);
+            transform: translateY(-3px);
+        }
+
+        .footer-text {
+            color: var(--text-muted);
+            font-size: 13px;
+        }
     </style>
 </head>
 <body>
@@ -623,30 +655,6 @@
                 </div>
             </div>
 
-            <!-- GOD FATHER BOT -->
-            <div class="bot-card animate-box">
-                <div class="bot-header">
-                    <div class="bot-type-tags">
-                        <i class="fa-solid fa-user-shield bot-icon" style="color: #FF3366; filter: drop-shadow(0 0 8px #FF3366);"></i>
-                        <span class="bot-category">SECURITY & ANTI-NUKE</span>
-                    </div>
-                    <span id="godfather-status" class="status-badge offline">○ Offline</span>
-                </div>
-                <h3>GOD FATHER</h3>
-                <p>24/7 automated guardian watching every channel and role to catch and neutralize nuke attacks, raids, and spam bursts within seconds.</p>
-                <div class="dashboard-metrics">
-                    <div class="metric-box"><span class="metric-label">Servers</span><span id="godfather-servers" class="metric-value">--</span></div>
-                    <div class="metric-box"><span class="metric-label">Ping</span><span id="godfather-ping" class="metric-value">--</span></div>
-                    <div class="metric-box"><span class="metric-label">Uptime</span><span id="godfather-uptime" class="metric-value" style="color:#00D2FF;">--</span></div>
-                </div>
-                <div class="tags">
-                    <span class="tag">Node.js</span>
-                    <span class="tag">Discord.js v14</span>
-                    <span class="tag">Modular Events</span>
-                </div>
-            </div>
-
-            
         </div>
     </section>
 
@@ -694,6 +702,16 @@
         </div>
     </section>
 
+    <!-- === FOOTER === -->
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/krishil9316k" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="#" target="_blank"><i class="fa-brands fa-discord"></i></a>
+            <a href="#" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+        <p class="footer-text">© 2026 Krishil. Engineered with C++, Python, and Node.js.</p>
+    </footer>
+
     <!-- === JAVASCRIPT FOR AUTO-RECONNECT === -->
     <script>
         // 1. SCROLL ANIMATIONS
@@ -712,7 +730,8 @@
         });
 
         // 2. REAL-TIME BOT METRICS & AUTO RECONNECT
-        const CENTRAL_API = "https://distant-penny-canon.ngrok-free.dev/status";
+        const CENTRAL_API = "https://YOUR-NGROK-URL.ngrok-free.dev/status";
+
         function updateDashboardUI(data) {
             if (data.ruby) {
                 document.getElementById("ruby-status").className = "status-badge online";
@@ -744,6 +763,13 @@
                 document.getElementById("codebot-workspace").innerText = data.codeAssistant.workspace || "Ready";
                 document.getElementById("codebot-debug").innerText = data.codeAssistant.debugState || "Standby";
             }
+            if (data.godfather) {
+                document.getElementById("godfather-status").className = "status-badge online";
+                document.getElementById("godfather-status").innerText = "● Guarding";
+                document.getElementById("godfather-servers").innerText = data.godfather.servers || "0";
+                document.getElementById("godfather-ping").innerText = data.godfather.wsPing || "0ms";
+                document.getElementById("godfather-uptime").innerText = data.godfather.uptime || "0h";
+            }
         }
 
         async function syncDashboardData() {
@@ -759,7 +785,8 @@
                     jivan: { filter: "BASSBOOST", vcName: "General VC" },
                     haven: { totalCoins: "45,200", activeTickets: "2", guilds: "5" },
                     rubybot: { activeQueues: "1", memberCount: "1,204" },
-                    codeAssistant: { workspace: "Indexed", debugState: "Listening" }
+                    codeAssistant: { workspace: "Indexed", debugState: "Listening" },
+                    godfather: { servers: "12", wsPing: "24ms", uptime: "99.9%" }
                 });
             }
         }
