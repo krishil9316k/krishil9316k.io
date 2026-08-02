@@ -7,14 +7,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Google tag (gtag.js) - Analytics Tracking -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_TRACKING_ID"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VB3Y24SK6J"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
-      // Replace 'G-YOUR_TRACKING_ID' with your actual Google Analytics ID
-      gtag('config', 'G-YOUR_TRACKING_ID');
+      gtag('config', 'G-VB3Y24SK6J');
     </script>
 
     <style>
@@ -207,13 +205,13 @@
         .media-container img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Images stretch perfectly to fill the box without black bars */
+            object-fit: cover;
         }
         
         .media-container video {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Videos stay uncropped to show the full robot moving */
+            object-fit: contain;
         }
 
         .card-content, .bot-card {
@@ -523,7 +521,7 @@
         
         <div class="grid-container">
 
-            <!-- === RUBY AI (WITH YOUR UPDATED CODE) === -->
+            <!-- === RUBY AI === -->
             <div class="bot-card animate-box">
                 <div class="bot-header">
                     <div class="bot-type-tags">
@@ -534,7 +532,6 @@
                 </div>
                 <h3>RUBY AI</h3>
                 <p>A cross-platform Voice AI ecosystem. Features Smart Home hardware control, WebRTC screen-sharing vision, and long-term SQLite memory.</p>
-                
                 <div class="dashboard-metrics">
                     <div class="metric-box">
                         <span class="metric-label">Orb Engine</span>
@@ -554,9 +551,7 @@
                     <span class="tag">LiveKit SDK</span>
                     <span class="tag">ESP32 & SQLite</span>
                 </div>
-                
                 <div style="margin-top: 20px;">
-                    <!-- REMEMBER TO UPDATE THIS LINK TO YOUR ACTUAL DOWNLOAD URL LATER -->
                     <a href="https://rubywebp.netlify.app/" target="_blank" class="btn secondary-btn" style="display: block; text-align: center; padding: 10px; font-size: 13px; margin: 0;">
                         View Details & Download App <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i>
                     </a>
@@ -655,6 +650,29 @@
                 </div>
             </div>
 
+            <!-- GOD FATHER BOT -->
+            <div class="bot-card animate-box">
+                <div class="bot-header">
+                    <div class="bot-type-tags">
+                        <i class="fa-solid fa-user-shield bot-icon" style="color: #FF3366; filter: drop-shadow(0 0 8px #FF3366);"></i>
+                        <span class="bot-category">SECURITY & ANTI-NUKE</span>
+                    </div>
+                    <span id="godfather-status" class="status-badge offline">○ Offline</span>
+                </div>
+                <h3>GOD FATHER</h3>
+                <p>24/7 automated guardian watching every channel and role to catch and neutralize nuke attacks, raids, and spam bursts within seconds.</p>
+                <div class="dashboard-metrics">
+                    <div class="metric-box"><span class="metric-label">Servers</span><span id="godfather-servers" class="metric-value">--</span></div>
+                    <div class="metric-box"><span class="metric-label">Ping</span><span id="godfather-ping" class="metric-value">--</span></div>
+                    <div class="metric-box"><span class="metric-label">Uptime</span><span id="godfather-uptime" class="metric-value" style="color:#00D2FF;">--</span></div>
+                </div>
+                <div class="tags">
+                    <span class="tag">Node.js</span>
+                    <span class="tag">Discord.js v14</span>
+                    <span class="tag">Modular Events</span>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -730,8 +748,9 @@
         });
 
         // 2. REAL-TIME BOT METRICS & AUTO RECONNECT
-        const CENTRAL_API = "https://YOUR-NGROK-URL.ngrok-free.dev/status";
-
+        // NOTE: If you restart Ngrok, put your new URL here!
+        const CENTRAL_API = "https://distant-penny-canon.ngrok-free.dev/status";
+        
         function updateDashboardUI(data) {
             if (data.ruby) {
                 document.getElementById("ruby-status").className = "status-badge online";
@@ -779,7 +798,7 @@
                 let data = await res.json();
                 updateDashboardUI(data);
             } catch (error) {
-                // FALLBACK SIMULATION: Keeps the site looking cool even if your PC is off
+                // FALLBACK SIMULATION: Keeps the site looking cool even if your PC/Ngrok is offline!
                 updateDashboardUI({
                     ruby: { orbState: "LISTENING" },
                     jivan: { filter: "BASSBOOST", vcName: "General VC" },
