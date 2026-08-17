@@ -122,6 +122,8 @@
             font-weight: 600;
             transition: 0.4s ease;
             margin-right: 20px;
+            border: none;
+            cursor: pointer;
         }
 
         .primary-btn {
@@ -139,6 +141,7 @@
         .secondary-btn {
             border: 2px solid var(--accent-cyan);
             color: var(--accent-cyan);
+            background: transparent;
         }
 
         .secondary-btn:hover {
@@ -179,7 +182,7 @@
             gap: 40px;
         }
 
-        .project-card, .bot-card {
+        .project-card, .bot-card, .cert-card {
             background: var(--bg-card);
             border-radius: 16px;
             overflow: hidden;
@@ -188,7 +191,7 @@
             transition: 0.4s ease;
         }
 
-        .project-card:hover, .bot-card:hover {
+        .project-card:hover, .bot-card:hover, .cert-card:hover {
             transform: translateY(-10px);
             border-color: var(--accent-purple);
             box-shadow: 0 10px 30px rgba(157, 78, 221, 0.2);
@@ -214,16 +217,16 @@
             object-fit: contain;
         }
 
-        .card-content, .bot-card {
+        .card-content, .bot-card, .cert-card {
             padding: 25px;
         }
 
-        .card-content h3, .bot-card h3 {
+        .card-content h3, .bot-card h3, .cert-card h3 {
             margin-bottom: 10px;
             font-size: 22px;
         }
 
-        .card-content p, .bot-card p {
+        .card-content p, .bot-card p, .cert-card p {
             color: var(--text-muted);
             font-size: 14px;
             line-height: 1.5;
@@ -323,6 +326,69 @@
             color: var(--accent-cyan);
         }
 
+        /* Certifications */
+        .cert-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .cert-icon {
+            font-size: 40px;
+            color: var(--accent-cyan);
+            background: rgba(0, 210, 255, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .cert-details h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .cert-details p {
+            margin-bottom: 0;
+            font-size: 13px;
+        }
+
+        /* Contact Form */
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid rgba(157, 78, 221, 0.1);
+            backdrop-filter: blur(8px);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(7, 2, 13, 0.7);
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            border-radius: 8px;
+            color: var(--text-white);
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 10px rgba(0, 245, 212, 0.2);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
         /* Glows */
         .ai-glow { color: var(--accent-purple) !important; filter: drop-shadow(0 0 8px var(--accent-purple)); }
         .music-glow { color: #FF007F !important; filter: drop-shadow(0 0 8px #FF007F); }
@@ -399,6 +465,7 @@
             <a href="#story">Story</a>
             <a href="#bots">Bots</a>
             <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
         </nav>
     </header>
 
@@ -409,7 +476,7 @@
             <p>I engineer physical automation with C++ and deploy intelligent software bots using Python and Node.js.</p>
             <div class="hero-buttons">
                 <a href="#robotics" class="btn primary-btn">View Projects</a>
-                <a href="#bots" class="btn secondary-btn">See My Bots</a>
+                <a href="#contact" class="btn secondary-btn">Get In Touch</a>
             </div>
         </div>
     </section>
@@ -552,7 +619,7 @@
                     <span class="tag">ESP32 & SQLite</span>
                 </div>
                 <div style="margin-top: 20px;">
-                    <a href="https://coruscating-kataifi-45e911.netlify.app/" target="_blank" class="btn secondary-btn" style="display: block; text-align: center; padding: 10px; font-size: 13px; margin: 0;">
+                    <a href="https://rubywebp.netlify.app/" target="_blank" class="btn secondary-btn" style="display: block; text-align: center; padding: 10px; font-size: 13px; margin: 0;">
                         View Details & Download App <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i>
                     </a>
                 </div>
@@ -717,6 +784,58 @@
                 </div>
             </div>
 
+        </div>
+    </section>
+
+    <!-- === CERTIFICATIONS SECTION === -->
+    <section id="certifications" class="section">
+        <h2 class="section-title">Certifications & Achievements</h2>
+        <div class="grid-container">
+            
+            <!-- Replace 'cert1.jpg' with your actual certificate image or delete the img tag -->
+            <div class="cert-card animate-box">
+                <i class="fa-solid fa-award cert-icon"></i>
+                <div class="cert-details">
+                    <h3>Advanced Robotics Certification</h3>
+                    <p>Issued by Example Institute, 2025</p>
+                </div>
+            </div>
+
+            <div class="cert-card animate-box">
+                <i class="fa-solid fa-certificate cert-icon" style="color: var(--accent-purple); background: rgba(224, 17, 95, 0.1);"></i>
+                <div class="cert-details">
+                    <h3>Node.js Backend Architecture</h3>
+                    <p>Issued by Dev Academy, 2024</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- === CONTACT SECTION === -->
+    <section id="contact" class="section">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle" style="text-align: center; color: var(--text-muted); margin-top:-40px; margin-bottom: 50px;">Interested in working together or have a question? Send me a message!</p>
+        
+        <div class="contact-container animate-box">
+            <!-- 
+                INSTRUCTIONS FOR THE CONTACT FORM:
+                1. Go to https://formspree.io/ and create a free account.
+                2. Create a new form and copy the "Endpoint URL" they give you.
+                3. Replace the URL in the 'action' attribute below with your new Formspree URL.
+            -->
+            <form action="https://formspree.io/f/mqpzyleb" method="POST">
+                <div class="form-group">
+                    <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" class="form-control" placeholder="Your Message..." required></textarea>
+                </div>
+                <button type="submit" class="btn primary-btn" style="width: 100%; margin: 0;">Send Message <i class="fa-solid fa-paper-plane" style="margin-left: 8px;"></i></button>
+            </form>
         </div>
     </section>
 
