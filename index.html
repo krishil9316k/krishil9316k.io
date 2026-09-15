@@ -462,6 +462,7 @@
         <nav>
             <a href="#hero">Home</a>
             <a href="#robotics">Robotics</a>
+            <a href="#software">Software</a> <!-- New Link Added! -->
             <a href="#story">Story</a>
             <a href="#bots">Bots</a>
             <a href="#skills">Skills</a>
@@ -548,6 +549,63 @@
                 </div>
             </div>
 
+        </div>
+    </section>
+
+    <!-- === ENTERPRISE SOFTWARE SECTION === -->
+    <section id="software" class="section">
+        <h2 class="section-title">Enterprise Platforms</h2>
+        
+        <!-- Large Featured Project Card -->
+        <div class="project-card animate-box" style="max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column;">
+            
+            <!-- Media Header -->
+            <div class="media-container" style="height: 350px;">
+                <!-- Replace 'bus-tracking.jpg' with a screenshot of your map or admin panel! -->
+                <img src="bus-tracking.jpg" alt="Fleet Tracking System" onerror="this.src='https://via.placeholder.com/1000x400/240B36/00D2FF?text=Fleet+Tracking+System'" style="width: 100%; height: 100%; object-fit: cover; border-bottom: 1px solid rgba(157, 78, 221, 0.15);">
+            </div>
+            
+            <!-- Content Area -->
+            <div style="padding: 40px;">
+                <h3 style="color: var(--accent-cyan); font-size: 28px; margin-bottom: 10px;">Enterprise Fleet & Real-Time Campus Bus Tracking</h3>
+                <p style="color: var(--text-muted); margin-bottom: 25px; line-height: 1.6; font-size: 15px;">
+                    An enterprise-grade, multi-tenant fleet management SaaS platform that replaces expensive physical GPS hardware with a scalable smartphone geolocation solution.
+                </p>
+
+                <!-- Two Column Feature Layout -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 30px;">
+                    <div>
+                        <h4 style="color: var(--accent-purple); margin-bottom: 12px; font-size: 16px;"><i class="fa-solid fa-sitemap"></i> Cloud Architecture</h4>
+                        <ul style="color: var(--text-muted); font-size: 13px; line-height: 1.7; padding-left: 20px;">
+                            <li style="margin-bottom: 8px;"><b>Driver Portal:</b> Broadcasts high-accuracy GPS & speed via mobile payload.</li>
+                            <li style="margin-bottom: 8px;"><b>Student Dashboard:</b> Public live map with Leaflet markers & polyline trails.</li>
+                            <li><b>Admin Command Center:</b> Telemetry tables, dispatch hub, & deviation monitoring.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--accent-purple); margin-bottom: 12px; font-size: 16px;"><i class="fa-solid fa-bolt"></i> Key Engineering Features</h4>
+                        <ul style="color: var(--text-muted); font-size: 13px; line-height: 1.7; padding-left: 20px;">
+                            <li style="margin-bottom: 8px;"><b>Security:</b> Role-Based Access Control via Firebase Auth.</li>
+                            <li style="margin-bottom: 8px;"><b>Algorithms:</b> Haversine formula for dynamic ETA & Proximity Geofencing.</li>
+                            <li><b>Safety:</b> Emergency SOS mutating database states for global warnings.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Tech Stack Tags -->
+                <div class="tags" style="margin-bottom: 35px;">
+                    <span class="tag">HTML5 / CSS3 / ES6 Modules</span>
+                    <span class="tag">Leaflet.js & Esri Maps</span>
+                    <span class="tag">Firebase Realtime DB</span>
+                    <span class="tag">Firebase Auth (RBAC)</span>
+                </div>
+
+                <!-- Action Buttons -->
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <a href="YOUR_GITHUB_LINK_HERE" target="_blank" class="btn primary-btn" style="margin: 0;"><i class="fa-brands fa-github" style="margin-right: 8px;"></i> View GitHub Repo</a>
+                    <a href="YOUR_CANVA_LINK_HERE" target="_blank" class="btn secondary-btn" style="margin: 0;"><i class="fa-solid fa-presentation-screen" style="margin-right: 8px;"></i> View Deck</a>
+                </div>
+            </div>
         </div>
     </section>
 
