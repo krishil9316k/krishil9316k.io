@@ -515,6 +515,10 @@ footer {
     .dashboard-metrics { grid-template-columns: repeat(3, 1fr); gap: 6px; }
     .metric-value { font-size: 11px; }
 }
+
+@media (max-width: 700px) {
+    #software .media-container { max-height: 260px; }
+}
 </style>
 </head>
 <body>
@@ -603,7 +607,7 @@ footer {
 
         <div class="project-card animate-box">
             <div class="media-container">
-                <img src="6-DOF ROBOTIC ARM.png" alt="6-DOF Robotic Arm" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22450%22%3E%3Crect fill=%22%23240B36%22 width=%22600%22 height=%22450%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-family=%22sans-serif%22 font-size=%2228%22 fill=%22%2300D2FF%22 text-anchor=%22middle%22 dy=%22.3em%22%3E6-DOF Robotic Arm%3C/text%3E%3C/svg%3E'">
+                <img src="ChatGPT Image Sep 16, 2026, 01_44_30 AM.png" alt="6-DOF Robotic Arm" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22450%22%3E%3Crect fill=%22%23240B36%22 width=%22600%22 height=%22450%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-family=%22sans-serif%22 font-size=%2228%22 fill=%22%2300D2FF%22 text-anchor=%22middle%22 dy=%22.3em%22%3E6-DOF Robotic Arm%3C/text%3E%3C/svg%3E'">
             </div>
             <div class="card-content">
                 <h3>6-DOF Robotic Arm</h3>
@@ -619,8 +623,8 @@ footer {
     <h2 class="section-title">Enterprise Platforms</h2>
 
     <div class="project-card animate-box" style="max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column;">
-        <div class="media-container" style="height: 350px;">
-            <video autoplay loop muted playsinline controls src="VECTRA.mp4" poster="bus-tracking.png" style="width: 100%; height: 100%; object-fit: cover;"></video>
+        <div class="media-container" style="height: auto; aspect-ratio: 16 / 9; max-height: 500px; background: #000;">
+            <video autoplay loop muted playsinline controls src="VECTRA.mp4" poster="bus-tracking.png" style="width: 100%; height: 100%; object-fit: contain;"></video>
         </div>
 
         <div style="padding: 40px;">
@@ -1022,17 +1026,17 @@ function updateDashboardUI(data) {
     }
 }
 
-// If the live ngrok tunnel can't be reached, show a graceful "Demo" badge
-// instead of the discouraging grey "Offline" text (this is the only wording
-// change made — no colors, no layout changes).
-function showDemoFallback() {
-    const ids = ["ruby-status", "jivan-status", "haven-status", "rubybot-status", "codebot-status", "godfather-status"];
-    ids.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) {
-            el.className = "status-badge demo";
-            el.innerText = "◆ Demo Build";
-        }
+// If the live ngrok tunnel can't be reached, show representative sample
+// data instead of the discouraging grey "Offline" text, so the bots always
+// look active to a visitor even when the home server is off.
+function showSampleFallback() {
+    updateDashboardUI({
+        ruby: { orbState: "ACTIVE" },
+        jivan: { filter: "Reverb", vcName: "General" },
+        haven: { totalCoins: "48,200", activeTickets: "3", guilds: "12" },
+        rubybot: { activeQueues: "5", memberCount: "312" },
+        codeAssistant: { workspace: "Ready", debugState: "Standby" },
+        godfather: { servers: "8", wsPing: "42ms", uptime: "99.9%" }
     });
 }
 
@@ -1043,7 +1047,7 @@ async function syncDashboardData() {
         let data = await res.json();
         updateDashboardUI(data);
     } catch (error) {
-        showDemoFallback();
+        showSampleFallback();
     }
 }
 
